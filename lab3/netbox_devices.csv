@@ -1,0 +1,3 @@
+Name,Status,Tenant,Site,Location,Rack,Role,Manufacturer,Type,IP Address,ID,Tenant Group,Platform,Serial number,Asset tag,Region,Site Group,Position (U),Rack face,Airflow,IPv4 Address,IPv6 Address,Cluster,Virtual chassis,VC Position,VC Priority,Comments,Contacts,Tags,Created,Last updated
+R1,Active,,KLD-Spb,,,Router,MikroTik,RouterOS 7,192.168.6.67/24,1,,,RYKN-PKG2,,Russia,,,,,192.168.6.67/24,,,,,,,,,2022-10-04 10:57,2022-10-04 18:59
+R2,Active,,KLD-Spb,,,Router,MikroTik,RouterOS 7,192.168.6.68/24,2,,,KM5L-55UM,,Russia,,,,,192.168.6.68/24,,,,,,,,,2022-10-04 10:58,2022-10-04 18:58
