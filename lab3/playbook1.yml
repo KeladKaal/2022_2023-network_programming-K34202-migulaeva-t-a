@@ -1,0 +1,37 @@
+---
+- name: Take information from netbox file
+  hosts: localhost
+  tasks:
+   - name: Read info from csv
+     community.general.read_csv:
+       path: routers.csv
+       key: "Serial number"
+     register: routers
+     delegate_to: localhost
+
+   - name: установка
+     set_fact: var1="{{ routers.dict["RYKN-PKG2"].Name }}"
+   - name: проверка
+     debug:
+       msg: "router: {{ var1 }}"
+   - name: to file
+     copy:
+       dest: "/home/kelad/playbooks/my.yml"
+       content: 'router: {{ var1 }}'
+
+
+- name: RouterOS change name
+  hosts: routers
+  gather_facts: false
+  vars_files:
+    - ./my.yml
+  tasks:
+   - name: Run a command
+     community.routeros.command:
+       commands:
+         - /system resource print
+         - /system identity set name={{ router }}
+     register: system_resource_print
+   - name: Print its output
+     ansible.builtin.debug:
+       var: system_resource_print.stdout_lines
